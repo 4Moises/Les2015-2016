@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import les.dr.server.pages.LoginPage;
 import les.dr.server.pages.Page;
 
@@ -19,8 +20,8 @@ import les.dr.server.pages.Page;
  *
  * @author Utilizador
  */
-@WebServlet(name = "SPage", urlPatterns = {"/SPage"})
-public class SInicial extends HttpServlet {
+@WebServlet(name = "logout", urlPatterns = {"/logout"})
+public class logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,9 +36,12 @@ public class SInicial extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Page pag = new LoginPage(out);
-            pag.genPage();
-            
+            HttpSession session = request.getSession();
+            if(session.isNew()==false){
+                session.invalidate();
+                Page pag = new LoginPage(out);
+                pag.genPage();
+            }
         }
     }
 

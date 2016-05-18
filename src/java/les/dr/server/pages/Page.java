@@ -9,32 +9,64 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author Utilizador
+ * @author Carlos Sampaio
  */
 abstract public class Page {
-    protected PrintWriter out =null;
-    protected int tab=0;
-    protected void printTab(){
-        for(int i=0;i<tab;i++) out.print("\t");
+
+    PrintWriter out = null;
+    protected int tab = 0;
+
+    protected void printTab() {
+        for (int i = 0; i < tab; i++) {
+            out.print("\t");
+        }
+    }
+
+    public Page(PrintWriter o) { //PrintWriter é 
+        out = o;
+    }
+
+    protected void genInit() { // para gerar uma pag. -- fixo para todos
+        printTab();
+        out.println("<!DOCTYPE html>");
+        printTab();
+        out.println("<html>");
+    }
+
+    protected void genClose() { // --fixo para todas as pag
+        printTab();
+        out.println("</html>");
     }
     
-    public Page(PrintWriter o){
-        out= o;
+    protected void genMetaTab(){
+        printTab(); out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
+    }
+     protected abstract void genTitle();
+     protected void   genCSS(){}
+     protected void   genJS(){}
+      protected void  genScript(){}
+
+    protected void genHeader(){
         
+        out.println("<head>");
+        tab++;
+        genMetaTab();
+        genTitle();
+        genCSS();
+        genJS();
+        genScript();
+        tab--;
+        out.println("<head>");
     }
-    protected void genInit(){
-        printTab(); out.println("<!DOCTYPE html>");
-        printTab(); out.println("<html>");
-    }
-    protected void genClose(){
-        printTab(); out.println("</html");
-    }
-    protected abstract void genHeader();
-    protected abstract void genBody();
-    public void genPage(){
+
+    protected abstract void genBody(); //
+    public void genPage() { //
         genInit();
         genHeader();
         genBody();
         genClose();
     }
+
+    
+
 }

@@ -19,8 +19,8 @@ import les.dr.server.pages.Page;
  *
  * @author Utilizador
  */
-@WebServlet(name = "SPage", urlPatterns = {"/SPage"})
-public class SInicial extends HttpServlet {
+@WebServlet(name = "login", urlPatterns = {"/login"})
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,7 +37,6 @@ public class SInicial extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             Page pag = new LoginPage(out);
             pag.genPage();
-            
         }
     }
 

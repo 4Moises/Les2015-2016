@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import les.dr.server.pages.AlertPage;
 import les.dr.server.pages.LoginPage;
 import les.dr.server.pages.Page;
 
@@ -19,8 +21,8 @@ import les.dr.server.pages.Page;
  *
  * @author Utilizador
  */
-@WebServlet(name = "SPage", urlPatterns = {"/SPage"})
-public class SInicial extends HttpServlet {
+@WebServlet(name = "alerta", urlPatterns = {"/alerta"})
+public class alerta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,8 +37,22 @@ public class SInicial extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Page pag = new LoginPage(out);
-            pag.genPage();
+            HttpSession session = request.getSession();
+            if(session.isNew()==false){
+                 long lat= session.getLastAccessedTime();
+           long ptime = new java.util.Date().getTime();
+           long dif = ptime- lat;
+           if(dif>10000000){
+               Page pag = new LoginPage(out,"Timeout");
+               pag.genPage();
+           }else{
+               String estado = (String) session.getAttribute("estado");
+               Page pag = new AlertPage(out, estado);
+               pag.genPage();
+               
+           }
+            }
+          
             
         }
     }
