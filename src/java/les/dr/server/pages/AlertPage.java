@@ -24,11 +24,11 @@ private String _msg="";
 
     @Override
     protected void genTitle() {
-         printTab(); out.println("<title>DR - Login Page</title>");
+         printTab(); out.println("<title>DR - Alerta Page</title>");
         }
      protected void genRightSide(){
           printTab(); out.println("<div class=\"container\">\n" +
-"                                                             <h2><i class=\"fa fa-files-o\"></i>Alerta</h2> \n" +
+"                                                            <h2><i class=\"fa fa-files-o\"></i>Alerta</h2> \n" +
 "                                                             \n" +
 "                                                              <br>\n" +
 "                                                             <br>\n" +
