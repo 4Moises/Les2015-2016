@@ -52,7 +52,7 @@ public class Index extends HttpServlet {
         long dif= ptime- lat;
         if(dif>1000000){
             try (PrintWriter out = response.getWriter()) {
-            Page pag = new LoginPage(out,"Terminou");
+            Page pag = new LoginPage(out, "TimeOut");
             pag.genPage();
         }
         }else{

@@ -37,7 +37,7 @@ public class LoginPage extends Page {
 "    \n" +
 "	<section id=\"content\">\n" +
 "            <h2 style=\"margin-bottom: 15px\"><img src=\"images/DRE.png\" alt=\"\" /></h2> \n" +
-"		<form action=\"Index\" method=\"POST\">\n" +
+"		<form action=\"index\" method=\"POST\">\n" +
 "		\n" +
 "			<div>\n" +
 "				<input type=\"text\" placeholder=\"Email\" required=\"\" name=\"email\" />\n" +
