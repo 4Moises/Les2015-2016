@@ -5,6 +5,8 @@
  */
 package les.dr.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 /**
  *
  * @author rodma
@@ -14,13 +16,14 @@ public class Alerta {
     private String _nome;
     private String _descricao;
     private String _emaill;
-    private String _data;
+    private Date _data;
     private String _nota;
     private String _assunto;
     private int _estado;
     private int _on;
     private String _email;
     
+    DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 
     /**
      * @return the on
