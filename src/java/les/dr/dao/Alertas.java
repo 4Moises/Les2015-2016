@@ -28,7 +28,7 @@ public class Alertas implements ICollection<Alerta> {
         try {
             Statement st;
             st=cc.createStatement();
-            st.executeUpdate("replace into alerta "+" values('"+a.getId_alerta()+"','"+a.getNome()+"','"+a.getEmaill()+"','"+a.getDescricao()+"','"+a.getEstado()+"','"+a.getData()+"','"+a.getNota()+"','"+a.getOn()+"','"+a.getAssunto()+"','"+a.getEmail()+"');");
+            st.executeUpdate("replace into alerta "+" values('"+a.getId_alerta()+"','"+a.getNome()+"','"+a.getEmaill()+"','"+a.getDescricao()+"','"+a.getEstado()+"','"+a.format.format(a.getData())+"','"+a.getNota()+"','"+a.getOn()+"','"+a.getAssunto()+"','"+a.getEmail()+"');");
             st.close();
             res=true;
         } catch (SQLException ex) {
