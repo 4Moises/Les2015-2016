@@ -126,5 +126,52 @@ public class Utilizadores implements ICollection<Utilizador> {
         return res;
     }
     
+    public List<Utilizador> admin(int tipo){
+        List<Utilizador> res=new java.util.LinkedList<Utilizador>();
+        Utilizador u;
+        DBConnection mdb = DBConnection.instance();
+        Connection cc =mdb.connect();
+        if(cc!=null){   
+        try {
+            Statement st;
+            st=cc.createStatement();
+            ResultSet rs=st.executeQuery("select * from utilizador where tipo=1;");
+            while(rs.next()){
+                u = new Utilizador(rs.getString("email"),rs.getString("nome"),rs.getString("password"),rs.getInt("tipo"));
+                res.add(u);
+            }
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(Utilizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        }
+        return res;
+    }
+    
+    public List<Utilizador> cliente(int tipo){
+        List<Utilizador> res=new java.util.LinkedList<Utilizador>();
+        Utilizador u;
+        DBConnection mdb = DBConnection.instance();
+        Connection cc =mdb.connect();
+        if(cc!=null){   
+        try {
+            Statement st;
+            st=cc.createStatement();
+            ResultSet rs=st.executeQuery("select * from utilizador where tipo=0;");
+            while(rs.next()){
+                u = new Utilizador(rs.getString("email"),rs.getString("nome"),rs.getString("password"),rs.getInt("tipo"));
+                res.add(u);
+            }
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(Utilizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        }
+        return res;
+    }
     
 }
