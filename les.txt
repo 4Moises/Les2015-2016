@@ -1,0 +1,60 @@
+validarUser() -----> utilizador
+
+getIdSession(int id_sessao) -----> sessao
+
+getIdUser(String email) -----> utilizador
+
+listAdmin() -----> utilizador
+
+addNewAdmin(String nome, String email, String password, 1) -----> adicionar -----> utilizador
+
+addAdmin(String nome, String email, String password, 1) ----->editar -----> utilizador
+
+removeAdmin(String email) -----> utilizador
+
+findAdmin(String email) -----> utilizador
+
+listCliente() -----> utilizador
+
+addNewCliente(String nome, String email, String password, 1) -----> adicionar -----> utilizador
+
+addCliente(String nome, String email, String password, 0) ----->editar -----> utilizador
+
+removeCliente(String email) -----> utilizador
+
+findCliente(String email) -----> utilizador
+
+listAlerta() -----> alerta
+
+desactAlerta(int id_alerta) -----> alerta
+
+actAlerta(int id_alerta) -----> alerta
+
+removeAlerta(int id_alerta) -----> alerta
+
+listNotificacao() -----> notificacao
+
+removeNotificacao(int id_notificacao) -----> notificacao
+
+getData(Date data) -----> infoRecPass
+
+listEmail() -----> infoRecPass
+
+getId() -----> infoRecPass
+
+saveData() -----> infoRecPass
+
+isValidoData() -----> infoRecPass
+
+removeGID(String gid) -----> infoRecPass
+
+saveNewPass(String password) -----> infoRecPass
+
+addNewAlerta(int id_alerta, String nome, String emaill, String descricao, String assunto, String nota, int estado, Date data, int on, String email) -----> adicionar
+
+addAlerta(int id_alerta, String nome, String emaill, String descricao, String assunto, String nota, int estado, Date data, int on, String email) ----->editar
+
+removeAllNotificacaoAlerta(int id_notificacao)  -----> notificacao
+
+
+
